@@ -4,6 +4,7 @@
   "main": "src/index.ts",
   "compatibility_date": "2025-07-08",
   "vars": {
-    "DATABASE_URL": "Connection-pool URL"
+    "DATABASE_URL": "Connection-pool URL",
+    "JWT_SECRET": "MyMediumSecretKey"
   }
 }
