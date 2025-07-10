@@ -1,5 +1,4 @@
 import {Hono} from "hono";
-import bcrypt from "bcryptjs";
 import {decode, sign, verify} from "hono/jwt";
 import {PrismaClient} from "@prisma/client/edge";
 import {withAccelerate} from "@prisma/extension-accelerate";
@@ -100,8 +99,9 @@ blogRouter.get("/bulk", async (c) => {
     console.log("Using userId:", c.get("jwtPayload"));
     const posts = await prisma.post.findMany({});
     console.log(posts);
-    return c.json(posts);
+    return c.json({posts});
   } catch (e) {
+    c.status(411);
     console.log(e);
   }
 });

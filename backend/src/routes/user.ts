@@ -34,7 +34,6 @@ userRouter.post("/signup", async (c) => {
     return c.json(
       {
         message: "Signup Successfull! User Created ✅",
-
         token: token,
       },
       200
