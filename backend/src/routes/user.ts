@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import {decode, sign, verify} from "hono/jwt";
 import {PrismaClient} from "@prisma/client/edge";
 import {withAccelerate} from "@prisma/extension-accelerate";
+import {signupInput, signinInput} from "@kingsuk100x/medium-common";
 
 interface Env {
   Bindings: {
@@ -22,6 +23,13 @@ userRouter.post("/signup", async (c) => {
   }).$extends(withAccelerate());
 
   const body = await c.req.json();
+  const {success} = signupInput.safeParse(body);
+  if (!success) {
+    c.status(411);
+    return c.json({
+      message: "Inputs are not Correct!",
+    });
+  }
   try {
     const hashedPassword = await bcrypt.hash(body.password, 10);
     const user = await prisma.user.create({
@@ -51,6 +59,13 @@ userRouter.post("/signin", async (c) => {
   }).$extends(withAccelerate());
 
   const body = await c.req.json();
+  const {success} = signinInput.safeParse(body);
+  if (!success) {
+    c.status(411);
+    return c.json({
+      message: "Inputs are not Correct!",
+    });
+  }
   const user = await prisma.user.findUnique({
     where: {
       email: body.email,

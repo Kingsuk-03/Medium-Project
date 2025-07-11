@@ -2,6 +2,7 @@ import {Hono} from "hono";
 import {decode, sign, verify} from "hono/jwt";
 import {PrismaClient} from "@prisma/client/edge";
 import {withAccelerate} from "@prisma/extension-accelerate";
+import {createBlogInput, updateBlogInput} from "@kingsuk100x/medium-common";
 
 interface Env {
   Bindings: {
@@ -24,6 +25,7 @@ blogRouter.use("/*", async (c, next) => {
   }
   const token = authHeader.split(" ")[1];
   const payload = await verify(token, c.env.JWT_SECRET);
+  console.log(payload);
   if (!payload) {
     c.status(401);
     return c.json({error: "unauthorized"});
@@ -45,6 +47,13 @@ blogRouter.post("/", async (c) => {
 
     const blogbody = await c.req.json();
     console.log(blogbody);
+    const {success} = createBlogInput.safeParse(blogbody);
+    if (!success) {
+      c.status(411);
+      return c.json({
+        message: "Inputs are not Correct!",
+      });
+    }
     const post = await prisma.post.create({
       data: {
         title: blogbody.title,
@@ -71,6 +80,13 @@ blogRouter.put("/", async (c) => {
     console.log(userId);
 
     const blogbody = await c.req.json();
+    const {success} = updateBlogInput.safeParse(blogbody);
+    if (!success) {
+      c.status(411);
+      return c.json({
+        message: "Inputs are not Correct!",
+      });
+    }
     await prisma.post.update({
       where: {
         id: blogbody.id,
