@@ -1,4 +1,6 @@
+import {useNavigate} from "react-router-dom";
 export function Landing() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white font-['Inter',system-ui,-apple-system,sans-serif]">
       {/* Header */}
@@ -44,10 +46,14 @@ export function Landing() {
             </nav>
 
             <div className="flex items-center space-x-4">
-              <button className="px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors font-medium">
+              <button
+                onClick={() => navigate("/signin")}
+                className="px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors font-medium hover:cursor-pointer">
                 Sign In
               </button>
-              <button className="px-4 py-2 bg-black hover:bg-gray-800 text-white rounded-md transition-colors font-medium">
+              <button
+                onClick={() => navigate("/signup")}
+                className="px-4 py-2 bg-black hover:bg-gray-800 text-white rounded-md transition-colors font-medium hover:cursor-pointer">
                 Sign Up
               </button>
             </div>
@@ -69,7 +75,9 @@ export function Landing() {
               great storytelling.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="flex items-center px-8 py-3 bg-black hover:bg-gray-800 text-white rounded-md text-lg font-medium transition-colors">
+              <button
+                onClick={() => navigate("/signup")}
+                className="hover:cursor-pointer flex items-center px-8 py-3 bg-black hover:bg-gray-800 text-white rounded-md text-lg font-medium transition-colors">
                 Start Writing
                 <svg
                   className="ml-2 h-5 w-5"
@@ -84,7 +92,7 @@ export function Landing() {
                   />
                 </svg>
               </button>
-              <button className="px-8 py-3 border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 rounded-md text-lg font-medium transition-colors bg-transparent">
+              <button className="px-8 py-3 border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 rounded-md text-lg font-medium transition-colors bg-transparent hover:cursor-pointer">
                 Explore Stories
               </button>
             </div>
@@ -422,7 +430,7 @@ export function Landing() {
                   />
                 </svg>
                 <span className="text-2xl font-bold font-['Poppins',sans-serif]">
-                  WriteFlow
+                  Medium
                 </span>
               </div>
               <p className="text-gray-400 font-['Inter',sans-serif]">
@@ -521,7 +529,7 @@ export function Landing() {
 
           <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 font-['Inter',sans-serif]">
-              © {new Date().getFullYear()} WriteFlow. All rights reserved.
+              © {new Date().getFullYear()} Medium. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
