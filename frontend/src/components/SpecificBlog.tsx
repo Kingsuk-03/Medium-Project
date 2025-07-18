@@ -29,7 +29,7 @@ export const SpecificBlog = ({
             <div className="text-lg font-medium pb-6">Author</div>
             <div className="flex flex-row">
               <img
-                className="w-10 h-10 flex flex-col justify-center rounded-full border-1 border-black mr-4"
+                className="w-9 h-9 flex flex-col justify-center rounded-full border-1 border-black mr-4"
                 src={avatar}
                 alt="Rounded avatar"
               />

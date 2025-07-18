@@ -38,7 +38,7 @@ export const BlogCard = ({
           <div className="pt-1">{content.slice(0, 164) + "..."}</div>
           <div className="mt-7 pb-1 flex justify-between">
             <div className="text-slate-700 text-base">{`${Math.ceil(
-              content.length / 100
+              content.length / 400
             )} min read`}</div>
             <div>
               <i className="ri-bookmark-line text-2xl text-gray-600 hover:text-black pl-2"></i>

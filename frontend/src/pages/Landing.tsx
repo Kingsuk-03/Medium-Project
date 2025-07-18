@@ -2,7 +2,7 @@ import {useNavigate} from "react-router-dom";
 export function Landing() {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-white font-['Inter',system-ui,-apple-system,sans-serif]">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,9 +21,7 @@ export function Landing() {
                     d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
                   />
                 </svg>
-                <span className="text-2xl font-bold text-gray-900 font-['Poppins',sans-serif]">
-                  Medium
-                </span>
+                <span className="text-2xl font-bold text-gray-900 ">Medium</span>
               </a>
             </div>
 
@@ -65,7 +63,7 @@ export function Landing() {
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-['Poppins',sans-serif]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Where great stories
               <span className="block text-black">come to life</span>
             </h1>
@@ -105,21 +103,15 @@ export function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-black mb-2 font-['Poppins',sans-serif]">
-                2M+
-              </div>
+              <div className="text-4xl font-bold text-black mb-2">2M+</div>
               <div className="text-gray-600 font-medium">Active Writers</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-black mb-2 font-['Poppins',sans-serif]">
-                50M+
-              </div>
+              <div className="text-4xl font-bold text-black mb-2">50M+</div>
               <div className="text-gray-600 font-medium">Stories Published</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-black mb-2 font-['Poppins',sans-serif]">
-                100M+
-              </div>
+              <div className="text-4xl font-bold text-black mb-2">100M+</div>
               <div className="text-gray-600 font-medium">Monthly Readers</div>
             </div>
           </div>
@@ -130,7 +122,7 @@ export function Landing() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 font-['Poppins',sans-serif]">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Everything you need to tell your story
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto font-['Inter',sans-serif]">
@@ -155,7 +147,7 @@ export function Landing() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 font-['Poppins',sans-serif]">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Beautiful Editor
               </h3>
               <p className="text-gray-600 font-['Inter',sans-serif]">
@@ -179,7 +171,7 @@ export function Landing() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 font-['Poppins',sans-serif]">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Engaged Community
               </h3>
               <p className="text-gray-600 font-['Inter',sans-serif]">
@@ -203,7 +195,7 @@ export function Landing() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 font-['Poppins',sans-serif]">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Analytics & Insights
               </h3>
               <p className="text-gray-600 font-['Inter',sans-serif]">
@@ -226,7 +218,7 @@ export function Landing() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 font-['Poppins',sans-serif]">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Rich Formatting
               </h3>
               <p className="text-gray-600 font-['Inter',sans-serif]">
@@ -244,7 +236,7 @@ export function Landing() {
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 font-['Poppins',sans-serif]">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Personalized Feed
               </h3>
               <p className="text-gray-600 font-['Inter',sans-serif]">
@@ -267,7 +259,7 @@ export function Landing() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 font-['Poppins',sans-serif]">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Easy Publishing
               </h3>
               <p className="text-gray-600 font-['Inter',sans-serif]">
@@ -282,7 +274,7 @@ export function Landing() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 font-['Poppins',sans-serif]">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Loved by writers worldwide
             </h2>
           </div>
@@ -309,9 +301,7 @@ export function Landing() {
                   <span className="text-black font-semibold">SJ</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900 font-['Poppins',sans-serif]">
-                    Sarah Johnson
-                  </div>
+                  <div className="font-semibold text-gray-900">Sarah Johnson</div>
                   <div className="text-sm text-gray-500">Tech Writer</div>
                 </div>
               </div>
@@ -338,9 +328,7 @@ export function Landing() {
                   <span className="text-black font-semibold">MC</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900 font-['Poppins',sans-serif]">
-                    Michael Chen
-                  </div>
+                  <div className="font-semibold text-gray-900">Michael Chen</div>
                   <div className="text-sm text-gray-500">Entrepreneur</div>
                 </div>
               </div>
@@ -367,9 +355,7 @@ export function Landing() {
                   <span className="text-black font-semibold">ER</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900 font-['Poppins',sans-serif]">
-                    Emily Rodriguez
-                  </div>
+                  <div className="font-semibold text-gray-900">Emily Rodriguez</div>
                   <div className="text-sm text-gray-500">Creative Writer</div>
                 </div>
               </div>
@@ -381,7 +367,7 @@ export function Landing() {
       {/* CTA Section */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 font-['Poppins',sans-serif]">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Ready to share your story?
           </h2>
           <p className="text-xl text-gray-600 mb-8 font-['Inter',sans-serif]">
@@ -429,9 +415,7 @@ export function Landing() {
                     d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
                   />
                 </svg>
-                <span className="text-2xl font-bold font-['Poppins',sans-serif]">
-                  Medium
-                </span>
+                <span className="text-2xl font-bold">Medium</span>
               </div>
               <p className="text-gray-400 font-['Inter',sans-serif]">
                 Where great stories come to life. Join our community of writers and
@@ -440,9 +424,7 @@ export function Landing() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4 font-['Poppins',sans-serif]">
-                Product
-              </h3>
+              <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <a
@@ -469,9 +451,7 @@ export function Landing() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4 font-['Poppins',sans-serif]">
-                Community
-              </h3>
+              <h3 className="font-semibold mb-4">Community</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <a
@@ -498,9 +478,7 @@ export function Landing() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4 font-['Poppins',sans-serif]">
-                Company
-              </h3>
+              <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <a
@@ -517,9 +495,7 @@ export function Landing() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/contact"
-                    className="hover:text-white transition-colors font-['Inter',sans-serif]">
+                  <a href="/contact" className="hover:text-white transition-colors">
                     Contact
                   </a>
                 </li>
@@ -528,18 +504,18 @@ export function Landing() {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 font-['Inter',sans-serif]">
+            <p className="text-gray-400 ">
               © {new Date().getFullYear()} Medium. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
                 href="/privacy"
-                className="text-gray-400 hover:text-white transition-colors font-['Inter',sans-serif]">
+                className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
               </a>
               <a
                 href="/terms"
-                className="text-gray-400 hover:text-white transition-colors font-['Inter',sans-serif]">
+                className="text-gray-400 hover:text-white transition-colors">
                 Terms of Service
               </a>
             </div>

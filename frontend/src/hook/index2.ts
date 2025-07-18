@@ -30,7 +30,7 @@ export const useBlog = () => {
         setLoading(false);
         setBlog(response.data);
       });
-  }, [blog]);
+  }, []);
 
   return {
     loading,
