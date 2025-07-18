@@ -113,7 +113,18 @@ blogRouter.get("/bulk", async (c) => {
 
   try {
     console.log("Using userId:", c.get("jwtPayload"));
-    const posts = await prisma.post.findMany({});
+    const posts = await prisma.post.findMany({
+      select: {
+        title: true,
+        content: true,
+        id: true,
+        author: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
     console.log(posts);
     return c.json({posts});
   } catch (e) {
@@ -130,6 +141,16 @@ blogRouter.get("/:id", async (c) => {
   const blog = await prisma.post.findUnique({
     where: {
       id: id,
+    },
+    select: {
+      title: true,
+      content: true,
+      id: true,
+      author: {
+        select: {
+          name: true,
+        },
+      },
     },
   });
   c.status(200);
