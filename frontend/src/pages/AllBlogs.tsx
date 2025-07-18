@@ -1,8 +1,10 @@
 import {BlogCard} from "../components/BlogCard";
 import {AppBar} from "../components/AppBar";
+import {useBlogs} from "../hook";
+import {Skeleton} from "../components/skeleton";
 
 export const AllBlogs = () => {
-  //
+  const {loading, blogs} = useBlogs();
   return (
     <div>
       <AppBar />
@@ -18,13 +20,23 @@ export const AllBlogs = () => {
         </div>
       </div>
       <div className="flex justify-center m-10">
-        <div>
-          <BlogCard
-            authorName="Kingsuk Bose"
-            title="How an Ugly Single-Page Website Makes $5,000 a Month with Affiliate Marketing"
-            content="No need to create a fancy and modern website with hundreds of pages to make money online. --- Making money online is the dream for man"
-            publishedDate="Dec 3, 2024"></BlogCard>
-        </div>
+        {loading ? (
+          <div>
+            <Skeleton />
+          </div>
+        ) : (
+          <div>
+            {blogs.map((posts) => (
+              <BlogCard
+                id={posts.id}
+                authorName={posts.author.name}
+                title={posts.title}
+                content={posts.content}
+                publishedDate={new Date().toDateString()}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

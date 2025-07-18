@@ -8,7 +8,7 @@ export const AppBar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <a href="/" className="flex items-center space-x-2">
+              <a href="/blogs" className="flex items-center space-x-2">
                 <svg
                   className="h-8 w-8 text-black"
                   fill="none"

@@ -44,7 +44,9 @@ export const Auth = ({type}: {type: "signup" | "signin"}) => {
           <div className="flex justify-center">
             <div>
               {/* {JSON.stringify(postInputs)} */}
-              <div className="text-3xl font-extrabold">Create an account</div>
+              <div className="text-3xl font-extrabold">
+                {type === "signup" ? "Create an account" : "Login to account"}
+              </div>
               <div className="text-slate-400 pl-5">
                 {type === "signup"
                   ? "Already have an account?"
