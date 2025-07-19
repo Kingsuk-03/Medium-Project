@@ -67,7 +67,7 @@ export function Landing() {
               Where great stories
               <span className="block text-black">come to life</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed font-['Inter',sans-serif]">
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Join millions of writers and readers on WriteFlow. Share your thoughts,
               discover new perspectives, and connect with a community that values
               great storytelling.
@@ -125,7 +125,7 @@ export function Landing() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Everything you need to tell your story
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-['Inter',sans-serif]">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto ">
               Powerful tools and features designed to help you write, publish, and
               grow your audience.
             </p>
@@ -150,7 +150,7 @@ export function Landing() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Beautiful Editor
               </h3>
-              <p className="text-gray-600 font-['Inter',sans-serif]">
+              <p className="text-gray-600 ">
                 Write with our distraction-free editor that focuses on your content
                 and creativity.
               </p>
@@ -174,7 +174,7 @@ export function Landing() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Engaged Community
               </h3>
-              <p className="text-gray-600 font-['Inter',sans-serif]">
+              <p className="text-gray-600 ">
                 Connect with readers and writers who share your interests and
                 passions.
               </p>
@@ -198,7 +198,7 @@ export function Landing() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Analytics & Insights
               </h3>
-              <p className="text-gray-600 font-['Inter',sans-serif]">
+              <p className="text-gray-600 ">
                 Track your story performance and understand your audience better.
               </p>
             </div>
@@ -221,7 +221,7 @@ export function Landing() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Rich Formatting
               </h3>
-              <p className="text-gray-600 font-['Inter',sans-serif]">
+              <p className="text-gray-600 ">
                 Add images, videos, and interactive elements to make your stories
                 come alive.
               </p>
@@ -239,7 +239,7 @@ export function Landing() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Personalized Feed
               </h3>
-              <p className="text-gray-600 font-['Inter',sans-serif]">
+              <p className="text-gray-600 ">
                 Discover content tailored to your interests and reading preferences.
               </p>
             </div>
@@ -262,7 +262,7 @@ export function Landing() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Easy Publishing
               </h3>
-              <p className="text-gray-600 font-['Inter',sans-serif]">
+              <p className="text-gray-600 ">
                 Publish instantly or schedule your stories for the perfect timing.
               </p>
             </div>
@@ -292,7 +292,7 @@ export function Landing() {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-600 mb-4 font-['Inter',sans-serif]">
+              <p className="text-gray-600 mb-4 ">
                 "WriteFlow has transformed how I share my ideas. The community is
                 incredibly supportive and the platform is a joy to use."
               </p>
@@ -319,7 +319,7 @@ export function Landing() {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-600 mb-4 font-['Inter',sans-serif]">
+              <p className="text-gray-600 mb-4 ">
                 "The editor is beautiful and the analytics help me understand what
                 resonates with my audience. Highly recommended!"
               </p>
@@ -346,7 +346,7 @@ export function Landing() {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-600 mb-4 font-['Inter',sans-serif]">
+              <p className="text-gray-600 mb-4 ">
                 "I've found my voice as a writer thanks to WriteFlow. The community
                 feedback has been invaluable for my growth."
               </p>
@@ -370,7 +370,7 @@ export function Landing() {
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Ready to share your story?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 font-['Inter',sans-serif]">
+          <p className="text-xl text-gray-600 mb-8 ">
             Join thousands of writers who have already discovered the joy of writing
             on WriteFlow.
           </p>
@@ -384,13 +384,13 @@ export function Landing() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black font-['Inter',sans-serif]"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black "
               />
               <button className="px-4 py-2 bg-black hover:bg-gray-800 text-white rounded-md transition-colors font-medium">
                 Subscribe
               </button>
             </div>
-            <p className="text-sm text-gray-500 mt-2 font-['Inter',sans-serif]">
+            <p className="text-sm text-gray-500 mt-2 ">
               Get updates about new features and writing tips.
             </p>
           </div>
@@ -417,7 +417,7 @@ export function Landing() {
                 </svg>
                 <span className="text-2xl font-bold">Medium</span>
               </div>
-              <p className="text-gray-400 font-['Inter',sans-serif]">
+              <p className="text-gray-400 ">
                 Where great stories come to life. Join our community of writers and
                 readers.
               </p>
@@ -429,21 +429,17 @@ export function Landing() {
                 <li>
                   <a
                     href="/features"
-                    className="hover:text-white transition-colors font-['Inter',sans-serif]">
+                    className="hover:text-white transition-colors ">
                     Features
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/pricing"
-                    className="hover:text-white transition-colors font-['Inter',sans-serif]">
+                  <a href="/pricing" className="hover:text-white transition-colors ">
                     Pricing
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/mobile"
-                    className="hover:text-white transition-colors font-['Inter',sans-serif]">
+                  <a href="/mobile" className="hover:text-white transition-colors ">
                     Mobile App
                   </a>
                 </li>
@@ -454,23 +450,17 @@ export function Landing() {
               <h3 className="font-semibold mb-4">Community</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a
-                    href="/writers"
-                    className="hover:text-white transition-colors font-['Inter',sans-serif]">
+                  <a href="/writers" className="hover:text-white transition-colors ">
                     For Writers
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/readers"
-                    className="hover:text-white transition-colors font-['Inter',sans-serif]">
+                  <a href="/readers" className="hover:text-white transition-colors ">
                     For Readers
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/help"
-                    className="hover:text-white transition-colors font-['Inter',sans-serif]">
+                  <a href="/help" className="hover:text-white transition-colors ">
                     Help Center
                   </a>
                 </li>
@@ -481,16 +471,12 @@ export function Landing() {
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a
-                    href="/about"
-                    className="hover:text-white transition-colors font-['Inter',sans-serif]">
+                  <a href="/about" className="hover:text-white transition-colors ">
                     About
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/careers"
-                    className="hover:text-white transition-colors font-['Inter',sans-serif]">
+                  <a href="/careers" className="hover:text-white transition-colors ">
                     Careers
                   </a>
                 </li>

@@ -1,5 +1,5 @@
 import {AppBar} from "../components/AppBar";
-import {Skeleton} from "../components/skeleton";
+import {Skeleton} from "../components/Skeleton";
 import {SpecificBlog} from "../components/SpecificBlog";
 import {useBlog} from "../hook/index2";
 
