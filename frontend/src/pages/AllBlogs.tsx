@@ -1,7 +1,7 @@
 import {BlogCard} from "../components/BlogCard";
 import {AppBar} from "../components/AppBar";
 import {useBlogs} from "../hook";
-import {Skeleton} from "../components/skeleton";
+import {Skeleton} from "../components/Skeleton";
 
 export const AllBlogs = () => {
   const {loading, blogs} = useBlogs();
