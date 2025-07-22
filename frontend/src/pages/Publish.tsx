@@ -34,9 +34,9 @@ export const Publish = () => {
   return (
     <div>
       <DraftBar publishBlog={publishBlog} />
-      <div className="mx-60">
-        <div className="flex mt-10 mb-4">
-          <div className=" pt-5 pr-5 border-r">
+      <div className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 max-w-screen-xl mx-auto">
+        <div className="flex flex-col sm:flex-row mt-10 mb-4">
+          <div className="pt-2 sm:pt-5 sm:pr-5 sm:border-r border-gray-300 mb-4 sm:mb-0">
             <div className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-600 text-5xl font-extralight pb-1">
               +
             </div>
@@ -44,7 +44,7 @@ export const Publish = () => {
           <textarea
             rows={1}
             placeholder="Title"
-            className="block w-full p-4 text-gray-900 text-5xl focus:outline-none focus:ring-0 focus:border-transparent resize-none"
+            className="block w-full p-4 text-gray-900 text-3xl sm:text-4xl md:text-5xl focus:outline-none focus:ring-0 focus:border-transparent resize-none"
             onInput={(e) => {
               const target = e.target as HTMLTextAreaElement;
               target.style.height = "auto";
@@ -55,11 +55,11 @@ export const Publish = () => {
             }}
           />
         </div>
-        <div className="mb-6 ml-18">
+        <div className="mb-6">
           <textarea
             rows={1}
             placeholder="Tell Your Story..."
-            className="text-2xl rounded-lg block w-full focus:outline-none focus:ring-0 focus:border-transparent p-2.5 resize-none"
+            className="text-xl sm:text-2xl rounded-lg block w-full focus:outline-none focus:ring-0 focus:border-transparent p-2.5 resize-none"
             onInput={(e) => {
               const target = e.target as HTMLTextAreaElement;
               target.style.height = "auto";
