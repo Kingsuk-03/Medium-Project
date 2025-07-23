@@ -6,23 +6,7 @@ A **full-stack Medium-style blogging platform** where users can write, publish, 
 
 ## 🌐 Live Preview
 
-[https://medium-project-frontend.vercel.app](https://medium-project-frontend.vercel.app)
-
-## 📸 Screenshots
-
-> _(Add preview images here)_
-
-<p align="center">
-  <img src="./frontend/src/assets/Landing.png" alt="Main Preview" width="full"/>
-</p>
-<p align="center">
-  <img src="./frontend/src/assets/SignUp.png" alt="Main Preview" width="50%"/>
-  <img src="./frontend/src/assets/write.png" alt="Main Preview" width="50%"/>
-</p>
-<p align="center">
-  <img src="./frontend/src/assets/Blogs.png" alt="Main Preview" width="50%"/>
-  <img src="./frontend/src/assets/Blog.png" alt="Main Preview" width="50%"/>
-</p>
+[https://medium-project-frontend.vercel.app](https://medium-project-lovat.vercel.app/)
 
 ## 🚀 Features
 
