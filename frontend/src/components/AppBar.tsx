@@ -6,6 +6,7 @@ import {useState} from "react";
 export const AppBar = () => {
   const [showOptions, setShowOptions] = useState(false);
   const clearStorage = () => {
+    alert("Logged Out Successfully!");
     localStorage.clear();
   };
   return (
@@ -51,22 +52,22 @@ export const AppBar = () => {
                   />
 
                   {showOptions && (
-                    <div className="absolute inline-flex rounded-md shadow-xs left-1/2 transform -translate-x-1/2 top-full mt-2 p-2 z-50">
+                    <div className="absolute inline-flex flex-col sm:flex-row rounded-md shadow-xs left-1/2 transform -translate-x-1/2 top-full mt-2 p-2 z-50 bg-white w-max max-w-[90vw]">
                       <button
                         type="button"
-                        className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-black focus:text-black">
+                        className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 sm:rounded-s-lg hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-black focus:text-black">
                         Profile
                       </button>
                       <button
                         type="button"
-                        className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-black focus:text-black">
+                        className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-black focus:text-black">
                         Settings
                       </button>
-                      <Link to={`/`}>
+                      <Link to={`/`} className="w-full sm:w-auto">
                         <button
                           type="button"
                           onClick={clearStorage}
-                          className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-black focus:text-black cursor-pointer">
+                          className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 sm:rounded-e-lg hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-black focus:text-black cursor-pointer">
                           LogOut
                         </button>
                       </Link>

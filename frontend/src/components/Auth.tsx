@@ -28,7 +28,7 @@ export const Auth = ({type}: {type: "signup" | "signin"}) => {
         }, 1000);
       }
     } catch (err) {
-      console.error("Signin failed:", err);
+      alert("Enter Valid Credentials...");
     } finally {
       setLoading(false);
     }

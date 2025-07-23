@@ -15,28 +15,26 @@ export const SpecificBlog = ({
   publishedDate,
 }: SpecificBlogProps) => {
   return (
-    <div className="w-full pb-5 mb-8">
-      <div>
-        <div className="flex h-full pr-50 pl-40 pt-10">
-          <div className="w-[75%] py-4">
-            <div className="text-4xl text-black font-extrabold pb-4 ">{title}</div>
-            <div className="pb-3 text-lg font-semibold pl-2 text-slate-600">
-              Posted on {publishedDate}
-            </div>
-            <div className="pl-5 text-lg">{content}</div>
+    <div className="w-full pb-5 mb-8 px-4">
+      <div className="flex flex-col lg:flex-row lg:pl-35 h-full pt-10 gap-6">
+        <div className="lg:w-[75%] w-full py-4">
+          <div className="text-3xl sm:text-4xl text-black font-extrabold pb-4">
+            {title}
           </div>
-          <div className="w-[25%] pt-10 pl-15">
-            <div className="text-lg font-medium pb-6">Author</div>
-            <div className="flex flex-row">
-              <img
-                className="w-9 h-9 flex flex-col justify-center rounded-full border-1 border-black mr-4"
-                src={avatar}
-                alt="Rounded avatar"
-              />
-              <div className="flex flex-col justify-center mr-1 text-2xl font-bold">
-                {authorName}
-              </div>
-            </div>
+          <div className="pb-3 text-base sm:text-lg font-semibold pl-1 text-slate-600">
+            Posted on {publishedDate}
+          </div>
+          <div className="pl-2 sm:pl-5 text-base sm:text-lg">{content}</div>
+        </div>
+        <div className="lg:w-[25%] w-full pt-6 lg:pt-10">
+          <div className="text-lg font-medium pb-4">Author</div>
+          <div className="flex items-center">
+            <img
+              className="w-10 h-10 rounded-full border border-black mr-4"
+              src={avatar}
+              alt="Author avatar"
+            />
+            <div className="text-xl font-bold">{authorName}</div>
           </div>
         </div>
       </div>

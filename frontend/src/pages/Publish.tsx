@@ -11,6 +11,10 @@ export const Publish = () => {
 
   const navigate = useNavigate();
   const publishBlog = async () => {
+    if (!title.trim() || !content.trim()) {
+      alert("Title and Content are required to publish!");
+      return;
+    }
     try {
       const res = await axios.post(
         `${BACKEND_URL}/api/v1/blog`,
