@@ -24,7 +24,7 @@ export const SpecificBlog = ({
           <div className="pb-3 text-base sm:text-lg font-semibold pl-1 text-slate-600">
             Posted on {publishedDate}
           </div>
-          <div className="pl-2 sm:pl-5 text-base sm:text-lg">{content}</div>
+          <div className="pl-2 sm:pl-5 text-base sm:text-lg whitespace-pre-line">{content}</div>
         </div>
         <div className="lg:w-[25%] w-full pt-6 lg:pt-10">
           <div className="text-lg font-medium pb-4">Author</div>
