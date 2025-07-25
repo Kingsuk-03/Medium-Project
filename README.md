@@ -1,8 +1,8 @@
 # Medium Project 📝
 
-A **full-stack Medium-style blogging platform** where users can write, publish, and read blogs. Built with a modern tech stack, featuring a **React + TypeScript frontend** and a **Cloudflare Workers backend**.
+A **full-stack Medium-style blogging platform** where users can write, publish, and read blogs — now powered with an integrated **AI blog generator**. Built with a modern tech stack, featuring a **React + TypeScript frontend + Groq API** and a **Cloudflare Workers backend**.
 
-🚀 **Serverless**, **scalable**, and **developer-friendly**.
+🚀 **AI-assisted**, **Serverless**, **scalable**, and **developer-friendly**.
 
 ## 🌐 Live Preview
 
@@ -12,6 +12,7 @@ A **full-stack Medium-style blogging platform** where users can write, publish, 
 
 - ✅ JWT Authentication (Signup, Signin)
 - ✍️ Create and publish blogs
+- 🤖 AI integration to generate blogs instantly
 - 👀 View all blogs and single posts
 - 📄 Author info with name and initials
 - 🌐 Fully responsive UI
@@ -24,6 +25,7 @@ A **full-stack Medium-style blogging platform** where users can write, publish, 
 
 | Layer    | Stack                                                                |
 | -------- | -------------------------------------------------------------------- |
+| AI       | Groq API, LLaMA 3 model                                              |
 | Frontend | React, TypeScript, Tailwind, Axios, Vercel                           |
 | Backend  | **Cloudflare Workers**, **PostgreSQL (Pooling)**, JWT, Zod, Wrangler |
 | Shared   | Common **npm** package (Zod + Types)                                 |
@@ -58,10 +60,11 @@ Medium-Project/
 
 ## ✅ Environment Variables
 
-| Variable       | Description                              | File           |
-| -------------- | ---------------------------------------- | -------------- |
-| `DATABASE_URL` | PostgreSQL connection URI (with pooling) | wrangler.jsonc |
-| `JWT_SECRET`   | Secret key for signing JWT tokens        | wrangler.jsonc |
+| Variable       | Description                                | File           |
+| -------------- | -------------------------------------------| -------------- |
+| `DATABASE_URL` | PostgreSQL connection URI (with pooling)   | wrangler.jsonc |
+| `JWT_SECRET`   | Secret key for signing JWT tokens          | wrangler.jsonc |
+| `GROQ_API_KEY` | Secret key for authenticating api requests | wrangler.jsonc |
 
 ---
 
