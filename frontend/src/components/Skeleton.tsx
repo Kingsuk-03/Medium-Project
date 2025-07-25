@@ -1,6 +1,6 @@
 export const Skeleton = () => {
   return (
-    <div className="animate-pulse flex flex-col items-center gap-8 w-[30rem]">
+    <div className="animate-pulse flex flex-col items-center gap-8 lg:w-[30rem]">
       <div>
         <div className="w-96 h-12 bg-slate-400 rounded-md" />
         <div className="w-56 h-8 bg-slate-400 mx-auto mt-6 rounded-md" />

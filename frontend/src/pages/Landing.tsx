@@ -68,7 +68,7 @@ export function Landing() {
               <span className="block text-black">come to life</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Join millions of writers and readers on WriteFlow. Share your thoughts,
+              Join millions of writers and readers on Medium. Share your thoughts,
               discover new perspectives, and connect with a community that values
               great storytelling.
             </p>
@@ -90,9 +90,19 @@ export function Landing() {
                   />
                 </svg>
               </button>
-              <button className="px-8 py-3 border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 rounded-md text-lg font-medium transition-colors bg-transparent hover:cursor-pointer">
-                Explore Stories
+              <button
+                onClick={() => navigate("/signup")}
+                className="px-8 py-3 border border-gray-300 hover:border-gray-400 text-white rounded-md text-lg font-medium transition-colors bg-transparent hover:cursor-pointer animate-[gradientShift_5s_linear_infinite]"
+                style={{
+                  background: "linear-gradient(45deg, white, black, white)",
+                  backgroundSize: "200% 200%",
+                  backgroundPosition: "0% 50%",
+                }}>
+                <i className="ri-sparkling-2-fill text-lg pr-2"></i>
+                New AI Feature
               </button>
+
+              <style>{`@keyframes gradientShift {0%, 100% { background-position: 0% 50%; }50% { background-position: 100% 50%; }}`}</style>
             </div>
           </div>
         </div>
@@ -182,24 +192,14 @@ export function Landing() {
 
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="h-8 w-8 text-black"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                  />
-                </svg>
+                <i className="ri-sparkling-2-fill text-3xl"></i>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Analytics & Insights
+                AI Integraion
               </h3>
               <p className="text-gray-600 ">
-                Track your story performance and understand your audience better.
+                Unleash your ideas with AI-powered blogging fast, smart, and
+                effortless.
               </p>
             </div>
 
@@ -293,7 +293,7 @@ export function Landing() {
                 ))}
               </div>
               <p className="text-gray-600 mb-4 ">
-                "WriteFlow has transformed how I share my ideas. The community is
+                "Medium has transformed how I share my ideas. The community is
                 incredibly supportive and the platform is a joy to use."
               </p>
               <div className="flex items-center">
@@ -320,8 +320,9 @@ export function Landing() {
                 ))}
               </div>
               <p className="text-gray-600 mb-4 ">
-                "The editor is beautiful and the analytics help me understand what
-                resonates with my audience. Highly recommended!"
+                "The newly introduced AI feature is incredibly impressive and works
+                seamlessly. I genuinely enjoyed using it and found it highly
+                effective in enhancing my experience. Highly recommend"
               </p>
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mr-3">
@@ -347,7 +348,7 @@ export function Landing() {
                 ))}
               </div>
               <p className="text-gray-600 mb-4 ">
-                "I've found my voice as a writer thanks to WriteFlow. The community
+                "I've found my voice as a writer thanks to Medium. The community
                 feedback has been invaluable for my growth."
               </p>
               <div className="flex items-center">
@@ -372,7 +373,7 @@ export function Landing() {
           </h2>
           <p className="text-xl text-gray-600 mb-8 ">
             Join thousands of writers who have already discovered the joy of writing
-            on WriteFlow.
+            on Medium.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <button className="px-8 py-3 bg-black hover:bg-gray-800 text-white rounded-md text-lg font-medium transition-colors">

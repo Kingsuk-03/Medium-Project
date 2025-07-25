@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import avatar from "../assets/51.png";
 import "remixicon/fonts/remixicon.css";
 import {useNavigate} from "react-router-dom";
@@ -35,6 +35,38 @@ export const Publish = () => {
     }
   };
 
+  const generateBlog = async () => {
+    if (!title || !title.trim()) {
+      alert("Write a Title to generate Blog!");
+      return;
+    }
+    try {
+      const res = await axios.post(
+        `${BACKEND_URL}/api/v1/blog/generate-blog`,
+        {title},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      const GeneratedContent = res.data.content;
+      if (res.status === 200) {
+        setContent(GeneratedContent);
+      }
+    } catch (err) {
+      console.error("Some Error Occured", err);
+    }
+  };
+
+  const contentRef = useRef<HTMLTextAreaElement | null>(null);
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.style.height = "auto";
+      contentRef.current.style.height = `${contentRef.current.scrollHeight}px`;
+    }
+  }, [content]);
+
   return (
     <div>
       <DraftBar publishBlog={publishBlog} />
@@ -61,9 +93,11 @@ export const Publish = () => {
         </div>
         <div className="mb-6">
           <textarea
+            ref={contentRef}
             rows={1}
             placeholder="Tell Your Story..."
-            className="text-xl sm:text-2xl rounded-lg block w-full focus:outline-none focus:ring-0 focus:border-transparent p-2.5 resize-none"
+            className="block w-full text-xl sm:text-2xl rounded-lg focus:outline-none focus:ring-0 focus:border-transparent p-2.5 resize-none"
+            value={content}
             onInput={(e) => {
               const target = e.target as HTMLTextAreaElement;
               target.style.height = "auto";
@@ -73,6 +107,21 @@ export const Publish = () => {
               setContent(e.target.value);
             }}
           />
+          <div className="flex flex-row-reverse">
+            <button
+              type="button"
+              onClick={generateBlog}
+              className="text-white py-2 px-3 rounded-full cursor-pointer m-2 animate-[gradientShift_5s_linear_infinite]"
+              style={{
+                background: "linear-gradient(45deg, white, black, white)",
+                backgroundSize: "200% 200%",
+                backgroundPosition: "0% 50%",
+              }}>
+              <i className="ri-bard-line pr-0.5"></i>
+              Generate with AI
+            </button>
+            <style>{`@keyframes gradientShift {0%, 100% { background-position: 0% 50%; }50% { background-position: 100% 50%; }}`}</style>
+          </div>
         </div>
       </div>
     </div>
