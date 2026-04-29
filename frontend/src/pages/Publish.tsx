@@ -8,6 +8,7 @@ import axios from "axios";
 export const Publish = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [generating, setGenerating] = useState(false);
 
   const navigate = useNavigate();
   const publishBlog = async () => {
@@ -41,6 +42,7 @@ export const Publish = () => {
       return;
     }
     try {
+      setGenerating(true);
       const res = await axios.post(
         `${BACKEND_URL}/api/v1/blog/generate-blog`,
         {title},
@@ -56,6 +58,8 @@ export const Publish = () => {
       }
     } catch (err) {
       console.error("Some Error Occured", err);
+    } finally {
+      setGenerating(false);
     }
   };
 
@@ -67,20 +71,35 @@ export const Publish = () => {
     }
   }, [content]);
 
+  const wordCount = content.trim() ? content.trim().split(/\s+/).length : 0;
+  const readMin = Math.max(1, Math.ceil(wordCount / 200));
+
   return (
-    <div>
-      <DraftBar publishBlog={publishBlog} />
-      <div className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 max-w-screen-xl mx-auto">
-        <div className="flex flex-col sm:flex-row mt-10 mb-4">
-          <div className="pt-2 sm:pt-5 sm:pr-5 sm:border-r border-gray-300 mb-4 sm:mb-0">
-            <div className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-600 text-5xl font-extralight pb-1">
-              +
-            </div>
+    <div className="min-h-screen bg-[var(--paper)]">
+      <DraftBar publishBlog={publishBlog} wordCount={wordCount} readMin={readMin} />
+
+      <div className="max-w-screen-md mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-16">
+        {/* Eyebrow */}
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-8 h-px bg-[var(--accent)]" />
+          <span className="eyebrow">New Draft · Untitled</span>
+        </div>
+
+        {/* Title */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8">
+          <div className="flex-shrink-0 sm:pt-3">
+            <button
+              type="button"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-[var(--line)] text-[var(--ink-muted)] hover:border-[var(--ink)] hover:text-[var(--ink)] hover:rotate-90 transition-all duration-300"
+              aria-label="Add media">
+              <i className="ri-add-line text-2xl"></i>
+            </button>
           </div>
           <textarea
             rows={1}
             placeholder="Title"
-            className="block w-full p-4 text-gray-900 text-3xl sm:text-4xl md:text-5xl focus:outline-none focus:ring-0 focus:border-transparent resize-none"
+            className="block w-full font-display text-[var(--ink)] text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.05] tracking-tight bg-transparent placeholder:text-[var(--ink-muted)]/40 placeholder:font-display resize-none"
+            style={{fontWeight: 600, letterSpacing: '-0.02em'}}
             onInput={(e) => {
               const target = e.target as HTMLTextAreaElement;
               target.style.height = "auto";
@@ -89,14 +108,25 @@ export const Publish = () => {
             onChange={(e) => {
               setTitle(e.target.value);
             }}
+            value={title}
           />
         </div>
-        <div className="mb-6">
+
+        {/* Divider */}
+        <div className="ml-0 sm:ml-[4.5rem] mb-8">
+          <div className="editorial-divider">
+            <span className="font-display italic text-base text-[var(--ink-muted)]">¶</span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="ml-0 sm:ml-[4.5rem] relative">
           <textarea
             ref={contentRef}
             rows={1}
-            placeholder="Tell Your Story..."
-            className="block w-full text-xl sm:text-2xl rounded-lg focus:outline-none focus:ring-0 focus:border-transparent p-2.5 resize-none"
+            placeholder="Tell your story..."
+            className="block w-full font-display text-[var(--ink-soft)] text-lg sm:text-xl leading-[1.7] bg-transparent placeholder:text-[var(--ink-muted)]/40 placeholder:italic resize-none min-h-[40vh]"
+            style={{fontWeight: 400}}
             value={content}
             onInput={(e) => {
               const target = e.target as HTMLTextAreaElement;
@@ -107,21 +137,33 @@ export const Publish = () => {
               setContent(e.target.value);
             }}
           />
-          <div className="flex flex-row-reverse">
-            <button
-              type="button"
-              onClick={generateBlog}
-              className="text-white py-2 px-3 rounded-full cursor-pointer m-2 animate-[gradientShift_5s_linear_infinite]"
-              style={{
-                background: "linear-gradient(45deg, white, black, white)",
-                backgroundSize: "200% 200%",
-                backgroundPosition: "0% 50%",
-              }}>
-              <i className="ri-bard-line pr-0.5"></i>
-              Generate with AI
-            </button>
-            <style>{`@keyframes gradientShift {0%, 100% { background-position: 0% 50%; }50% { background-position: 100% 50%; }}`}</style>
-          </div>
+
+          {generating && (
+            <div className="absolute inset-0 flex items-center justify-center bg-[var(--paper)]/70 backdrop-blur-[2px]">
+              <div className="flex flex-col items-center gap-3">
+                <div className="flex gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" style={{animationDelay: '0s'}}/>
+                  <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" style={{animationDelay: '0.15s'}}/>
+                  <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" style={{animationDelay: '0.3s'}}/>
+                </div>
+                <span className="font-mono text-xs tracking-[0.2em] text-[var(--ink-muted)]">
+                  COMPOSING...
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Generate AI button - floating bottom */}
+        <div className="fixed bottom-6 right-6 z-30">
+          <button
+            type="button"
+            onClick={generateBlog}
+            disabled={generating}
+            className="group relative inline-flex items-center gap-2 text-[var(--paper)] py-3 px-5 rounded-full cursor-pointer bg-[var(--ink)] hover:bg-[var(--accent)] transition-all duration-300 shadow-lg shadow-black/20 disabled:opacity-50 disabled:cursor-not-allowed">
+            <i className="ri-sparkling-2-fill text-base group-hover:rotate-12 transition-transform"></i>
+            <span className="font-medium text-sm">Generate with AI</span>
+          </button>
         </div>
       </div>
     </div>
@@ -130,43 +172,54 @@ export const Publish = () => {
 
 interface DraftBarProps {
   publishBlog: () => void;
+  wordCount: number;
+  readMin: number;
 }
 
-const DraftBar = ({publishBlog}: DraftBarProps) => {
+const DraftBar = ({publishBlog, wordCount, readMin}: DraftBarProps) => {
   return (
-    <div>
-      <header className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <a className="flex items-center space-x-2">
-                <i className="ri-draft-fill text-3xl"></i>
-                <span className="text-2xl font-bold text-gray-700">Draft</span>
-              </a>
-            </div>
-            <div>
-              <div className="flex justify-center">
-                <div className="flex justify-centertext-slate-600 pr-3">
-                  <button
-                    type="button"
-                    onClick={publishBlog}
-                    className="text-white bg-green-600 hover:bg-green-800
-                    focus:outline-none focus:ring-4 focus:ring-green-200 font-medium
-                    rounded-full text-sm px-5 py-2.5 text-center me-2 cursor-pointer">
-                    Publish
-                  </button>
-                </div>
-                <i className="text-2xl text-slate-800 ri-notification-4-line pt-1 pr-4 hover:cursor-pointer"></i>
-                <img
-                  className="w-10 h-10 flex flex-col justify-center rounded-full border-1 border-black mr-2 hover:cursor-pointer"
-                  src={avatar}
-                  alt="Rounded avatar"
-                />
-              </div>
+    <header className="sticky top-0 z-40 bg-[var(--paper)]/85 backdrop-blur-md border-b border-[var(--line-soft)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center gap-4">
+            <a href="/blogs" className="flex items-center gap-2 group">
+              <svg className="h-6 w-6 text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors -rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+              </svg>
+              <span className="font-display text-xl tracking-tight text-[var(--ink)]" style={{fontWeight: 600}}>Medium</span>
+            </a>
+            <div className="hidden sm:flex items-center gap-2 ml-2 pl-4 border-l border-[var(--line)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
+              <span className="font-mono text-[0.7rem] text-[var(--ink-muted)] tracking-[0.2em] uppercase">
+                Draft
+              </span>
             </div>
           </div>
+
+          <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-3 text-xs text-[var(--ink-muted)] font-mono tracking-wider">
+              <span>{wordCount} {wordCount === 1 ? 'WORD' : 'WORDS'}</span>
+              <span className="text-[var(--line)]">·</span>
+              <span>{readMin} MIN READ</span>
+            </div>
+            <button
+              type="button"
+              onClick={publishBlog}
+              className="btn-primary !py-2 !px-5 text-sm">
+              Publish
+              <i className="ri-arrow-right-up-line"></i>
+            </button>
+            <button className="text-[var(--ink-soft)] hover:text-[var(--ink)] transition-colors p-2 cursor-pointer hidden sm:block">
+              <i className="ri-notification-3-line text-xl"></i>
+            </button>
+            <img
+              className="w-9 h-9 rounded-full border border-[var(--line)] hover:border-[var(--ink)] transition-all cursor-pointer"
+              src={avatar}
+              alt="avatar"
+            />
+          </div>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };

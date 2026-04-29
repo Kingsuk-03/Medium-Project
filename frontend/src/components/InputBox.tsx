@@ -9,14 +9,14 @@ interface InputBoxProps {
 
 export function InputBox({label, placeholder, type, onChange}: InputBoxProps) {
   return (
-    <div>
-      <label className="block mb-2 text-base font-medium text-gray-900">
+    <div className="group">
+      <label className="eyebrow block mb-2.5">
         {label}
       </label>
       <input
         onChange={onChange}
         type={type || "text"}
-        className="bg-gray-50 border border-gray-500 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+        className="bg-transparent border-b border-[var(--line)] text-[var(--ink)] text-base font-body block w-full pb-2.5 pt-1 px-0.5 placeholder:text-[var(--ink-muted)] placeholder:font-light transition-colors duration-300 focus:border-[var(--accent)]"
         placeholder={placeholder}
         required
       />
